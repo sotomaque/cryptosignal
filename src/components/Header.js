@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         backgroundColor: "#191c21",
-        paddingBottom: 10
+        paddingTop: 5,
+        paddingBottom: 20
     },
     headerImage: {
         marginTop: 45,

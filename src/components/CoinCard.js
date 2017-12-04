@@ -21,13 +21,11 @@ const styles = StyleSheet.create({
     },
     coinDetailContainer: {
         marginLeft: 20,
-        display: "flex",
-        justifyContent: "flex-start"
+        marginTop: 4,
     },
     coinSymbol: {
         marginTop: 10,
-        marginLeft: 20,
-        marginRight: 5,
+        marginLeft: 5,
         fontWeight: "bold",
         color: "#fff",
     },
@@ -47,6 +45,8 @@ const styles = StyleSheet.create({
     image: {
         width: 35,
         height: 35,
+        marginTop: 15,
+        marginLeft: 10,
     },
     moneySymbol: {
         fontWeight: "bold",
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         padding: 14,
         fontSize: 14,
         borderRadius: 4,
-        overflow: 'hidden'
+        shadowOpacity: 0.75,
     },
     percentChangeMinus: {
         backgroundColor: "#F45531",
@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
         padding: 14,
         fontSize: 14,
         borderRadius: 4,
-        overflow: 'hidden'
+        overflow: 'hidden',
+
     }
 });
 
@@ -99,7 +100,7 @@ const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_ch
                 source={{ uri: images[symbol] }}
             />
 
-            <View style={coinDetailContainer}> 
+            <View style={coinDetailContainer}>
                 <Text style={coinName}>{coin_name}</Text>
                 <Text style={coinSymbol}>{symbol}</Text>
             </View>
