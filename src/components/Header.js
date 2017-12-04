@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     },
     headerImage: {
         marginTop: 45,
-        width: 200,
-        height: 75,
+        width: 150,
+        height: 50,
         resizeMode: 'contain'
     }
 })

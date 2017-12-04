@@ -18,7 +18,11 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingLeft: 15,
         paddingRight: 15,
-        backgroundColor: "red"
+    },
+    coinDetailContainer: {
+        marginLeft: 20,
+        display: "flex",
+        justifyContent: "flex-start"
     },
     coinSymbol: {
         marginTop: 10,
@@ -48,22 +52,28 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     percentChangeContainer: {
-        paddingTop: 7,
+        paddingTop: 14,
         paddingBottom: 7,
         paddingRight: 14,
-        alignItems: "flex-end"
+        marginLeft: "auto",
     },
     percentChangePlus: {
         backgroundColor: "#58B522",
         fontWeight: "bold",
-        marginLeft: 5,
-        color: "#fff"
+        color: "#fff",
+        padding: 14,
+        fontSize: 14,
+        borderRadius: 4,
+        overflow: 'hidden'
     },
     percentChangeMinus: {
         backgroundColor: "#F45531",
         color: "#fff",
         fontWeight: "bold",
-        marginLeft: 5
+        padding: 14,
+        fontSize: 14,
+        borderRadius: 4,
+        overflow: 'hidden'
     }
 });
 
@@ -76,7 +86,7 @@ const {
     percentChangePlus,
     percentChangeMinus,
     percentChangeContainer,
-    left
+    coinDetailContainer
 } = styles;
 
 const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_change_7d }) => {
@@ -89,9 +99,10 @@ const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_ch
                 source={{ uri: images[symbol] }}
             />
 
-            <Text style={coinName}>{coin_name}</Text>
-            <Text style={coinSymbol}>{symbol}</Text>
-        
+            <View style={coinDetailContainer}> 
+                <Text style={coinName}>{coin_name}</Text>
+                <Text style={coinSymbol}>{symbol}</Text>
+            </View>
 
             <View style={percentChangeContainer}>
                 <Text style={percent_change_24h < 0 ? percentChangeMinus : percentChangePlus }>
