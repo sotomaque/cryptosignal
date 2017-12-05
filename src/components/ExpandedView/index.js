@@ -1,3 +1,3 @@
-import ExpandedViewContainer from './ExpandedViewContainer';
+import SingleCoinContainer from './SingleCoinContainer';
 
-export { ExpandedViewContainer };
+export { SingleCoinContainer };

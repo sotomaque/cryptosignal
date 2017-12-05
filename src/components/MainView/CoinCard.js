@@ -138,7 +138,7 @@ const mapDispatchToProps = (dispatch, props) => {
             dispatch(NavigationActions.navigate(
                 {
                     routeName: 'ExpandedView',
-                    params: { coin: props.coin_name}
+                    params: { id: props.id}
                 }
             ))
     }

@@ -53,13 +53,13 @@ class CryptoContainer extends Component {
     }
 }
 
-const styles = {
+const styles = StyleSheet.create({
     contentContainer: {
         paddingTop: 0,
         paddingBottom: 0,
         backgroundColor: "#05060A",
     }
-}
+})
 
 function mapStateToProps(state) {
     return {

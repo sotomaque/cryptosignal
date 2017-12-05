@@ -5,7 +5,7 @@ import {
 } from './../Actions/ActionTypes';
 
 const initialState = {
-    isFetching: null,
+    isFetching: false,
     data: [],
     hasError: false,
     errorMessage: null,
@@ -39,9 +39,8 @@ export default function(state = initialState, action) {
                 errorMessage: action.err
             });
 
-    
         default:
             return state;
     }
-    
+
 }
