@@ -9,15 +9,19 @@ class SingleCoinContainer extends Component {
     componentDidMount() {
         const { FetchSingleCoinData, navigation, singleCoin } = this.props
         FetchSingleCoinData(navigation.state.params.id)
-        console.log(navigation.state.params.id)
+    }
+
+    renderCoin = () => {
+        const { singleCoin} = this.props;
+        return singleCoin.data.map(item => <Text>{item.name} </Text>)
+
+        console.log(singleCoin)
     }
 
     render() {
 
         const { singleCoin } = this.props;
         const { contentContainer } = styles;
-
-        console.log(singleCoin)
 
         if (singleCoin.isFetching) {
             return (
@@ -34,7 +38,7 @@ class SingleCoinContainer extends Component {
 
         return (
             <View>
-                <Text>coin</Text>
+                {this.renderCoin()}
             </View>
         )
     }
