@@ -2,10 +2,14 @@ import React from 'react';
 import {
     View,
     Text,
+    Image,
     StyleSheet,
-    Image
+    Button,
+    TouchableHighlight
 } from 'react-native';
-import { images } from '../Utils/CoinIcons';
+import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
+import { images } from '../../Utils/CoinIcons';
 
 const styles = StyleSheet.create({
     container: {
@@ -15,9 +19,11 @@ const styles = StyleSheet.create({
         borderBottomColor: "rgba(255, 255, 255, 0.1)",
         borderBottomWidth: 2,
         paddingBottom: 10,
-        paddingTop: 10,
         paddingLeft: 15,
         paddingRight: 15,
+    },
+    'container:first-child': {
+        marginTop: 1000
     },
     coinDetailContainer: {
         marginLeft: 20,
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
         padding: 14,
         fontSize: 14,
         borderRadius: 4,
-        shadowOpacity: 0.75,
+        overflow: 'hidden',
     },
     percentChangeMinus: {
         backgroundColor: "#F45531",
@@ -90,31 +96,42 @@ const {
     coinDetailContainer
 } = styles;
 
-const CoinCard = ({ symbol, coin_name, price_usd, percent_change_24h, percent_change_7d }) => {
+
+const CoinCard = ({
+    symbol, coin_name, price_usd,
+    percent_change_24h, percent_change_7d,
+    NavigateToExpandedView }) => {
 
     return (
-        <View style={container}>
 
-            <Image
-                style={image}
-                source={{ uri: images[symbol] }}
-            />
+            <View style={container}>
+                <TouchableHighlight onPress={NavigateToExpandedView}>
+                    <Image
+                        style={image}
+                        source={{ uri: images[symbol] }}
+                    />
+                </TouchableHighlight>
 
-            <View style={coinDetailContainer}>
-                <Text style={coinName}>{coin_name}</Text>
-                <Text style={coinSymbol}>{symbol}</Text>
+                <View style={coinDetailContainer}>
+                    <Text style={coinName}>{coin_name}</Text>
+                    <Text style={coinSymbol}>{symbol}</Text>
+                </View>
+
+                <View style={percentChangeContainer}>
+                    <Text style={percent_change_24h < 0 ? percentChangeMinus : percentChangePlus }>
+                        {percent_change_24h} %
+                    </Text>
+                </View>
+
             </View>
-
-            <View style={percentChangeContainer}>
-                <Text style={percent_change_24h < 0 ? percentChangeMinus : percentChangePlus }>
-                    {percent_change_24h} %
-                </Text>
-            </View>
-
-        </View>
     );
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        NavigateToExpandedView: () =>
+            dispatch(NavigationActions.navigate({ routeName: 'ExpandedView'}))
+    }
+}
 
-
-export default CoinCard;
+export default connect(null, mapDispatchToProps)(CoinCard);

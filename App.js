@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
-
 import Store from './src/Store';
-import { Header, CryptoContainer } from './src/components';
 
+import AppWithNavigationState from './src/Navigation/RootNavigator';
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={Store}>
-        <View style={{backgroundColor: "#b9a4ff"}}>
-          <Header />
-          <CryptoContainer />
-        </View>
+        <AppWithNavigationState />
       </Provider>
     );
   }
 }
+
+AppRegistry.registerComponent('App', () => App)

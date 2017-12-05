@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#191c21",
         paddingTop: 5,
-        paddingBottom: 20
+        paddingBottom: 20,
+        marginTop: 200
     },
     headerImage: {
         marginTop: 45,
