@@ -5,7 +5,6 @@ import {
     Image,
     StyleSheet,
     TouchableHighlight,
-    TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
@@ -134,11 +133,13 @@ const CoinCard = ({
 }
 
 const mapDispatchToProps = (dispatch, props) => {
-    console.log(props)
     return {
         NavigateToExpandedView: () =>
             dispatch(NavigationActions.navigate(
-                { routeName: 'ExpandedView', params: props.symbol}
+                {
+                    routeName: 'ExpandedView',
+                    params: { coin: props.coin_name}
+                }
             ))
     }
 }

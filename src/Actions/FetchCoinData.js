@@ -4,7 +4,7 @@ import {
     FETCHING_COIN_DATA,
     FETCHING_COIN_DATA_SUCCESS,
     FETCHING_COIN_DATA_FAIL,
-} from './../Utils/ActionTypes';
+} from './ActionTypes';
 
 
 export default function FetchCoinData() {
@@ -18,8 +18,7 @@ export default function FetchCoinData() {
             })
             .catch(err => {
                 return dispatch({ type: FETCHING_COIN_DATA_FAIL, payload: err });
-            });   
+            }); 
 
     }
 }
-
