@@ -10,12 +10,32 @@ import { CryptoContainer } from '../components/MainView';
 import ExpandedView from '../components/ExpandedView';
 import Header from './../components/Header';
 
+const header = {
+    navigationOptions: {
+        headerTitle: Header,
+        headerStyle: {
+            backgroundColor: '#191c21',
+            height: 85,
+            paddingBottom: 5
+        },
+        headerTitleStyle: {
+            color: 'white',
+        },
+        headerBackTitleStyle: {
+            color: 'white',
+        },
+        headerTintColor: 'white',
+        headerPadding: 5
+    }
+}
 export const AppNavigator = StackNavigator({
     Index: {
         screen: CryptoContainer,
+        ...header
     },
     ExpandedView: {
         screen: ExpandedView,
+        ...header
     }
 })
 

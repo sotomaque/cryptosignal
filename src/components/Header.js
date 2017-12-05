@@ -14,13 +14,10 @@ const styles = StyleSheet.create({
     headerContainer: {
         display: "flex",
         alignItems: "center",
-        backgroundColor: "#191c21",
-        paddingTop: 5,
-        paddingBottom: 20,
-        marginTop: 200
+        margin: 0,
+        padding: 0,
     },
     headerImage: {
-        marginTop: 45,
         width: 150,
         height: 50,
         resizeMode: 'contain'
