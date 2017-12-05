@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, TouchableHighlight } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import FetchCoinData from './../../Actions/FetchCoinData';
@@ -56,8 +56,9 @@ class CryptoContainer extends Component {
 const styles = {
     contentContainer: {
         paddingTop: 0,
-        paddingBottom: 140,
-        backgroundColor: "#05060A"
+        paddingBottom: 100,
+        backgroundColor: "#05060A",
+        flex: 1
     }
 }
 

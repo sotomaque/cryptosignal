@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
 import { CryptoContainer } from '../components/MainView';
-import ExpandedView from '../components/ExpandedView';
+import { ExpandedViewContainer } from '../components/ExpandedView';
 import Header from './../components/Header';
 
 const header = {
@@ -28,13 +28,14 @@ const header = {
         headerPadding: 5
     }
 }
+
 export const AppNavigator = StackNavigator({
     Index: {
         screen: CryptoContainer,
         ...header
     },
     ExpandedView: {
-        screen: ExpandedView,
+        screen: ExpandedViewContainer,
         ...header
     }
 })

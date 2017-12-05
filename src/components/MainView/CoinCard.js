@@ -4,8 +4,8 @@ import {
     Text,
     Image,
     StyleSheet,
-    Button,
-    TouchableHighlight
+    TouchableHighlight,
+    TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     percentChangeContainer: {
+        display: "flex",
         paddingTop: 14,
         paddingBottom: 7,
         paddingRight: 14,
@@ -105,6 +106,7 @@ const CoinCard = ({
     return (
 
             <View style={container}>
+
                 <TouchableHighlight onPress={NavigateToExpandedView}>
                     <Image
                         style={image}
@@ -112,25 +114,32 @@ const CoinCard = ({
                     />
                 </TouchableHighlight>
 
-                <View style={coinDetailContainer}>
-                    <Text style={coinName}>{coin_name}</Text>
-                    <Text style={coinSymbol}>{symbol}</Text>
-                </View>
+                <TouchableHighlight onPress={NavigateToExpandedView}>
+                    <View style={coinDetailContainer}>
+                        <Text style={coinName}>{coin_name}</Text>
+                        <Text style={coinSymbol}>{symbol}</Text>
+                    </View>
+                </TouchableHighlight>
 
-                <View style={percentChangeContainer}>
-                    <Text style={percent_change_24h < 0 ? percentChangeMinus : percentChangePlus }>
-                        {percent_change_24h} %
-                    </Text>
-                </View>
+                    <View style={percentChangeContainer}>
+                        <TouchableHighlight onPress={NavigateToExpandedView}>
+                            <Text style={percent_change_24h < 0 ? percentChangeMinus : percentChangePlus }>
+                                {percent_change_24h} %
+                            </Text>
+                        </TouchableHighlight>
+                    </View>
 
             </View>
     );
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, props) => {
+    console.log(props)
     return {
         NavigateToExpandedView: () =>
-            dispatch(NavigationActions.navigate({ routeName: 'ExpandedView'}))
+            dispatch(NavigationActions.navigate(
+                { routeName: 'ExpandedView', params: props.symbol}
+            ))
     }
 }
 

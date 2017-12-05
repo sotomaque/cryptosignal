@@ -1,10 +1,3 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import ExpandedViewContainer from './ExpandedViewContainer';
 
-const ExpandedView = () => (
-    <View>
-        <Text>coin</Text>
-    </View>
-)
-
-export default ExpandedView;
+export { ExpandedViewContainer };
