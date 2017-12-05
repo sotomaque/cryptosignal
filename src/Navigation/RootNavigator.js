@@ -7,8 +7,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
 import { CryptoContainer } from '../components/MainView';
-import { SingleCoinContainer } from '../components/ExpandedView';
+import { SingleCoinContainer, CoinHeader } from '../components/ExpandedView';
 import Header from './../components/Header';
+
 
 const header = {
     navigationOptions: {
@@ -36,7 +37,21 @@ export const AppNavigator = StackNavigator({
     },
     ExpandedView: {
         screen: SingleCoinContainer,
-        ...header
+        navigationOptions: {
+            headerTitle: CoinHeader,
+            headerStyle: {
+                backgroundColor: '#21CE99',
+                height: 85,
+            },
+            headerTitleStyle: {
+                color: 'white',
+            },
+            headerBackTitleStyle: {
+                color: 'white',
+            },
+            headerTintColor: 'white',
+            headerPadding: -5
+        }
     }
 })
 

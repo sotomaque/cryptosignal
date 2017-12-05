@@ -133,12 +133,13 @@ const CoinCard = ({
 }
 
 const mapDispatchToProps = (dispatch, props) => {
+    console.log(props)
     return {
         NavigateToExpandedView: () =>
             dispatch(NavigationActions.navigate(
                 {
                     routeName: 'ExpandedView',
-                    params: { id: props.coin_name}
+                    params: { id: props.id }
                 }
             ))
     }

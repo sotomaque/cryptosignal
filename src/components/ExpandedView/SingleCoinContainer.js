@@ -13,9 +13,8 @@ class SingleCoinContainer extends Component {
 
     renderCoin = () => {
         const { singleCoin} = this.props;
-        return singleCoin.data.map(item => <Text>{item.name} </Text>)
+        return singleCoin.data.map((item, i) => <Text key={i}>{item.name} </Text>)
 
-        console.log(singleCoin)
     }
 
     render() {

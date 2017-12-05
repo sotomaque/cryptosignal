@@ -17,6 +17,7 @@ class CryptoContainer extends Component {
         return crypto.data.map((coin, index) =>
             <CoinCard
                 key={coin.name}
+                id={coin.id}
                 coin_name={coin.name}
                 symbol={coin.symbol}
                 price_usd={coin.price_usd}
