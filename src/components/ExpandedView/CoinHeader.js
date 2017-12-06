@@ -5,10 +5,8 @@ import Store from './../../Store';
 
 const styles = StyleSheet.create({
     image: {
-        width: 35,
-        height: 35,
-        marginTop: 15,
-        marginLeft: 10,
+        width: 60,
+        height: 60,
     },
 })
 

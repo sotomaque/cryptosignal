@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { connect } from 'react-redux'
 import FetchSingleCoinData from './../../Actions/FetchSingleCoinData';
 import Spinner from 'react-native-loading-spinner-overlay';
+import CoinChart from './CoinChart';
 
 class SingleCoinContainer extends Component {
 
@@ -12,9 +13,13 @@ class SingleCoinContainer extends Component {
     }
 
     renderCoin = () => {
-        const { singleCoin} = this.props;
+        const { singleCoin } = this.props;
         return singleCoin.data.map((item, i) => <Text key={i}>{item.name} </Text>)
+    }
 
+    renderChart = () => {
+        const { singleCoin } = this.props;
+        return <CoinChart />
     }
 
     render() {
@@ -38,6 +43,7 @@ class SingleCoinContainer extends Component {
         return (
             <View>
                 {this.renderCoin()}
+                {this.renderChart()}
             </View>
         )
     }
