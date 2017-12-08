@@ -42,15 +42,18 @@ export const AppNavigator = StackNavigator({
             headerStyle: {
                 backgroundColor: '#21CE99',
                 height: 85,
+                borderBottomWidth: 0,
             },
             headerTitleStyle: {
                 color: 'white',
+                shadowColor: 'transparent'
             },
             headerBackTitleStyle: {
                 color: 'white',
             },
             headerTintColor: 'white',
-            headerPadding: -5
+            headerPadding: -5,
+
         }
     }
 })

@@ -133,7 +133,6 @@ const CoinCard = ({
 }
 
 const mapDispatchToProps = (dispatch, props) => {
-    console.log(props)
     return {
         NavigateToExpandedView: () =>
             dispatch(NavigationActions.navigate(

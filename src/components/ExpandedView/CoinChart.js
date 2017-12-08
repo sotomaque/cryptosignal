@@ -1,43 +1,67 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import {
-    VictoryAxis,
-    VictoryBar,
-    VictoryChart
-} from "victory-native";
-
-const data = [
-    {quarter: 1, earnings: 13000},
-    {quarter: 2, earnings: 16500},
-    {quarter: 3, earnings: 14250},
-    {quarter: 4, earnings: 19000}
-];
+import { View, StyleSheet, Dimensions } from 'react-native';
+import Svg, { G, Path, Rect, Line } from 'react-native-svg'
+import Axis from './Axis';
+import { VictoryChart, VictoryAxis, VictoryArea, VictoryPolarAxis, VictoryBar, VictoryTheme } from 'victory-native'
 
 class CoinChart extends Component {
+
     render() {
+
+        const { data } = this.props;
+        const { chartContainer } = styles;
+        console.log(data)
         return (
-            <View>
-                {/* <VictoryChart domainPadding={40}>
+            <View style={chartContainer}>
+                <VictoryChart>
                     <VictoryAxis
-                    tickValues={[1, 2, 3, 4]}
-                    tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+                        animate={{
+                            duration: 2000,
+                            easing: "bounce"
+                        }}
+                        style={{
+                            axis: {stroke: "#25A67E"},
+                            grid: {strokeWidth: 2},
+                            ticks: {stroke: "white"},
+                            tickLabels: {fill: '#25A67E', "font-weight": "bold"},
+                        }}
+                        tickValues={["1D", "1M", "3M", "1Y"]}
+                        domain={"date"}
                     />
                     <VictoryAxis
-                    dependentAxis
-                    tickFormat={(x) => (`$${x / 1000}k`)}
+                    animate={{
+                            duration: 2000,
+                            easing: "bounce"
+                        }}
+                        style={{
+                            axis: {stroke: "#25A67E"},
+                            grid: {strokeWidth: 2},
+                            ticks: {stroke: "white"},
+                            tickLabels: {fill: '#25A67E', "font-weight": "bold"},
+                        }}
+                        domain={[0, 10000]}
+                        
                     />
-                    <VictoryBar
-                    style={{
-                        data: {fill: "blue"}
-                    }}
-                    data={data}
-                    x="quarter"
-                    y="earnings"
-                    />
-                </VictoryChart> */}
+
+                </VictoryChart>
+
             </View>
-        )
+  
+        );
+
+
     }
 }
+
+const styles = StyleSheet.create({
+    chartContainer: {
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: '#000',
+        height: 460,
+        paddingLeft: 10,
+        paddingRight: 10,
+    }
+})
 
 export default CoinChart;
