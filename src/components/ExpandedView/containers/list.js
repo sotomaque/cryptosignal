@@ -77,7 +77,7 @@ export default class List extends Component {
               key={index}
             />;
           })}
-          <Add onPress={onAddCoin} />
+          {/* <Add onPress={onAddCoin} /> */}
         </ScrollView>
       </View>
     );

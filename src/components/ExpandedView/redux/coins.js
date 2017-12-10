@@ -62,6 +62,9 @@ const initialState: State = {
     { symbol: 'DASH',name: 'DigitalCash' },
     { symbol: 'XEM', name: 'NEM' },
     { symbol: 'XMR', name: 'Monero' },
+    { symbol: 'BCH', name: 'Bitcoin Cash'},
+    { symbol: 'IOTA', name: "IOTA" },
+    { symbol: 'BTG', name: 'Bitcoin Gold'}
   ],
 };
 

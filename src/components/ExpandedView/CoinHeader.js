@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderWidth: 0,
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        marginBottom: 0,
     },
 })
 

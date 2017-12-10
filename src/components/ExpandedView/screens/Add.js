@@ -41,9 +41,8 @@ export default class extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 20, // put content below status bar
-    // backgroundColor: 'white',
-    backgroundColor: '#673AB7',
+    backgroundColor: 'white',
+    // backgroundColor: '#673AB7',
   },
   button: {
     margin: 10,

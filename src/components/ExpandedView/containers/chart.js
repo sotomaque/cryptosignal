@@ -9,23 +9,18 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateChartPrices } from '../redux/chart';
 import Line from '../components/chart/line';
+import numeral from 'numeral';
 
 @connect((state) => {
     const {
-      coins: {
-        current: symbol,
-        list
-      },
-      chart: {
-        range,
-        prices,
-        loading,
-      },
+      coins: { current: symbol, list },
+      chart: { range, prices, loading },
     } = state;
     return { symbol, range, prices, list, loading };
   },
   (dispatch) => bindActionCreators({ updateChartPrices }, dispatch)
 )
+
 export default class Chart extends Component {
 
   state = {
@@ -53,13 +48,23 @@ export default class Chart extends Component {
       prices,
       range,
       list,
-      current
+      current,
+      price,
+      symbol
     } = this.props;
-    console.log(list, prices)
+    console.log(symbol, list)
+
+    const mapSymbolToPrice = list.filter(coin => coin.symbol === symbol);
+
+    console.log(mapSymbolToPrice)
 
     return (
       <View style={styles.container}>
         <Text style={styles.price}>
+          {mapSymbolToPrice[0].price
+            ? numeral(mapSymbolToPrice[0].price).format('$0,0[.]0[0000]')
+            : '—'
+          }
         </Text>
         {loading && <View pointerEvents="box-none" style={styles.loading}>
           <ActivityIndicator size="large" />
@@ -76,7 +81,7 @@ export default class Chart extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 38, // take 38% of the screen height
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
   },
   loading: {
     ...StyleSheet.absoluteFillObject, // overlay the chart
@@ -86,6 +91,7 @@ const styles = StyleSheet.create({
   },
   price: {
     fontSize: 28,
+    paddingTop: 20,
     fontWeight: "bold",
     alignSelf: 'center',
   }

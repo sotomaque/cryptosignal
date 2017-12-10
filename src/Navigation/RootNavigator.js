@@ -35,7 +35,7 @@ const expandedHeader = {
     navigationOptions: {
         headerTitle: CoinHeader,
         headerStyle: {
-            backgroundColor: '#000',
+            backgroundColor: '#191c21',
             height: 85,
             borderBottomWidth: 0,
         },

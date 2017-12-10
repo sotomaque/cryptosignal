@@ -18,7 +18,7 @@ export default class extends Component {
 
   onAddCoin = () => {
     const { navigation } = this.props;
-    navigation.navigate('add');
+    navigation.navigate('Add');
   };
 
   render() {
@@ -36,7 +36,6 @@ export default class extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,        // take up the whole screen
-    paddingTop: 20, // put content below status bar
     backgroundColor: 'white',
   },
 });

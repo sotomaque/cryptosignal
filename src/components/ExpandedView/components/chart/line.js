@@ -13,8 +13,9 @@ import {
   Surface,
   Shape
 } from 'react-native/Libraries/ART/ReactNativeART';
+import * as Animatable from 'react-native-animatable';
 
-export default class Line extends Component {
+class Line extends Component {
 
   props: {
     values: Array<number>,
@@ -125,7 +126,7 @@ export default class Line extends Component {
       height,
     } = this.state;
     return (
-      <View
+      <Animatable.View
         style={styles.container}
         onLayout={this.onLayout}
       >
@@ -139,7 +140,7 @@ export default class Line extends Component {
             />
           </Group>
         </Surface>
-      </View>
+      </Animatable.View>
     );
   }
 
@@ -152,3 +153,5 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 });
+
+export default Animatable.createAnimatableComponent(Line);
