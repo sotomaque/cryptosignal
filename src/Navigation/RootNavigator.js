@@ -7,9 +7,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 
 import { CryptoContainer } from '../components/MainView';
-import { SingleCoinContainer, CoinHeader } from '../components/ExpandedView';
+import CoinHeader from '../components/ExpandedView/CoinHeader';
 import Header from './../components/Header';
-
+import List from '../components/ExpandedView/screens/List.js';
+import Add from '../components/ExpandedView/screens/Add.js';
 
 const header = {
     navigationOptions: {
@@ -30,32 +31,34 @@ const header = {
     }
 }
 
+const expandedHeader = {
+    navigationOptions: {
+        headerTitle: CoinHeader,
+        headerStyle: {
+            backgroundColor: '#000',
+            height: 85,
+            borderBottomWidth: 0,
+        },
+        headerTitleStyle: {
+            color: 'white',
+            shadowColor: 'transparent'
+        },
+        headerBackTitleStyle: {
+            color: 'white',
+        },
+        headerTintColor: 'white',
+        headerPadding: -5,
+
+    }
+}
+
 export const AppNavigator = StackNavigator({
     Index: {
         screen: CryptoContainer,
         ...header
     },
-    ExpandedView: {
-        screen: SingleCoinContainer,
-        navigationOptions: {
-            headerTitle: CoinHeader,
-            headerStyle: {
-                backgroundColor: '#21CE99',
-                height: 85,
-                borderBottomWidth: 0,
-            },
-            headerTitleStyle: {
-                color: 'white',
-                shadowColor: 'transparent'
-            },
-            headerBackTitleStyle: {
-                color: 'white',
-            },
-            headerTintColor: 'white',
-            headerPadding: -5,
-
-        }
-    }
+    List: { screen: List, ...expandedHeader }, // list with the chart
+    Add: { screen: Add, ...expandedHeader },   // add new coin screen
 })
 
 

@@ -137,8 +137,7 @@ const mapDispatchToProps = (dispatch, props) => {
         NavigateToExpandedView: () =>
             dispatch(NavigationActions.navigate(
                 {
-                    routeName: 'ExpandedView',
-                    params: { id: props.id }
+                    routeName: 'List',
                 }
             ))
     }

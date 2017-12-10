@@ -17,9 +17,15 @@ export default function(state = initialState, action) {
             );
             break;
 
-        case 'ExpandedView':
+        case 'List':
             nextState = AppNavigator.router.getStateForAction(
-                NavigationActions.navigate({ routeName: 'ExpandedView' })
+                NavigationActions.navigate({ routeName: 'List' })
+            )
+            break;
+
+        case 'Add':
+            nextState = AppNavigator.router.getStateForAction(
+                NavigationActions.navigate({ routeName: 'Add' })
             )
             break;
 

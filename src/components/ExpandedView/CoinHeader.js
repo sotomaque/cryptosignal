@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
     image: {
         width: 60,
         height: 60,
-        borderWidth: 0
+        borderWidth: 0,
+        resizeMode: 'contain'
     },
 })
 
@@ -16,7 +17,7 @@ const { image } = styles;
 const CoinHeader = ({symbol}) => (
     <Image
         style={image}
-        source={{ uri: images[Store.getState().singleCoin.data.map(coin => coin.symbol)] }}
+        source={require('./../../Assets/cryptosignal_logo.png')}
     />
 )
 

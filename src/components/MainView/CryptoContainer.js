@@ -32,18 +32,18 @@ class CryptoContainer extends Component {
         const { crypto } = this.props;
         const { contentContainer } = styles;
 
-        if (crypto.isFetching) {
-            return (
-                <View contentContainerStyle={contentContainer}>
-                    <Spinner
-                        visible={crypto.isFetching}
-                        textContent={"Loading..."}
-                        textStyle={{color: '#253145'}}
-                        animation="fade"
-                    />
-                </View>
-            )
-        }
+        // if (crypto.isFetching) {
+        //     return (
+        //         <View contentContainerStyle={contentContainer}>
+        //             <Spinner
+        //                 visible={crypto.isFetching}
+        //                 textContent={"Loading..."}
+        //                 textStyle={{color: '#253145'}}
+        //                 animation="fade"
+        //             />
+        //         </View>
+        //     )
+        // }
 
         return (
             <ScrollView contentContainerStyle={contentContainer}>
