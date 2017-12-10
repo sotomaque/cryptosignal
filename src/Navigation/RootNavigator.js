@@ -16,7 +16,7 @@ const header = {
     navigationOptions: {
         headerTitle: Header,
         headerStyle: {
-            backgroundColor: '#191c21',
+            backgroundColor: '#303032',
             height: 85,
             paddingBottom: 5
         },
@@ -35,7 +35,7 @@ const expandedHeader = {
     navigationOptions: {
         headerTitle: CoinHeader,
         headerStyle: {
-            backgroundColor: '#191c21',
+            backgroundColor: '#303032',
             height: 85,
             borderBottomWidth: 0,
         },
@@ -53,12 +53,12 @@ const expandedHeader = {
 }
 
 export const AppNavigator = StackNavigator({
-    Index: {
-        screen: CryptoContainer,
-        ...header
-    },
-    List: { screen: List, ...expandedHeader }, // list with the chart
-    Add: { screen: Add, ...expandedHeader },   // add new coin screen
+    // Index: {
+    //     screen: CryptoContainer,
+    //     ...header
+    // },
+    Index: { screen: List, ...expandedHeader }, // list with the chart
+    // Add: { screen: Add, ...expandedHeader },   // add new coin screen
 })
 
 

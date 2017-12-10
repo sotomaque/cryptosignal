@@ -88,7 +88,7 @@ export default class List extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 62, // take 62% of the screen height
-    backgroundColor: '#137b5b',
+    backgroundColor: '#303032',
   },
   list: {
     flexDirection: 'row', // arrange coins in rows

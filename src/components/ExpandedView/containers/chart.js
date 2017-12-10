@@ -10,6 +10,8 @@ import { bindActionCreators } from 'redux';
 import { updateChartPrices } from '../redux/chart';
 import Line from '../components/chart/line';
 import numeral from 'numeral';
+import styled from 'styled-components/native';
+
 
 @connect((state) => {
     const {
@@ -54,18 +56,20 @@ export default class Chart extends Component {
     } = this.props;
     console.log(symbol, list)
 
-    const mapSymbolToPrice = list.filter(coin => coin.symbol === symbol);
+    const mapSymbolToPrice = list.filter(coin => coin.symbol === symbol); // selected coin price
 
-    console.log(mapSymbolToPrice)
 
     return (
       <View style={styles.container}>
-        <Text style={styles.price}>
-          {mapSymbolToPrice[0].price
-            ? numeral(mapSymbolToPrice[0].price).format('$0,0[.]0[0000]')
-            : '—'
-          }
-        </Text>
+        <OdometerPriceView>
+          <OdometerPrice>
+            {mapSymbolToPrice[0].price
+              ? numeral(mapSymbolToPrice[0].price).format('$0,0[.]0[0000]')
+              : '—'
+            }
+          </OdometerPrice>
+        </OdometerPriceView>
+
         {loading && <View pointerEvents="box-none" style={styles.loading}>
           <ActivityIndicator size="large" />
         </View>}
@@ -81,7 +85,7 @@ export default class Chart extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 38, // take 38% of the screen height
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    backgroundColor: '#303032',
   },
   loading: {
     ...StyleSheet.absoluteFillObject, // overlay the chart
@@ -89,10 +93,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',         // center vertically
     zIndex: 1,                        // show in front of the chart
   },
-  price: {
-    fontSize: 28,
-    paddingTop: 20,
-    fontWeight: "bold",
-    alignSelf: 'center',
-  }
 });
+
+const OdometerPriceView = styled.View`
+  display: flex;
+  justify-content: center;
+`
+
+const OdometerPrice = styled.Text`
+  color: #fff;
+  font-size: 28;
+  paddingTop: 20;
+  align-self: center;
+  text-shadow-offset: 10px 5px;
+`
